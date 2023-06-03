@@ -15,6 +15,10 @@ public class StudentController {
     public StudentController(StudentService studentService){
         this.studentService=studentService;
     }
+    @GetMapping("/")
+    public String home(){
+        return "redirect:/students";
+    }
     @GetMapping("/students")
     public String listStudents(Model model){
         model.addAttribute("students", studentService.getAllStudent());
